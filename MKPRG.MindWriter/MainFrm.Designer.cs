@@ -35,8 +35,8 @@ namespace MKPRG.MindWriter
             this.addChildWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.mainFormTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.cmdLabel = new System.Windows.Forms.Label();
             this.tbxCmd = new System.Windows.Forms.TextBox();
+            this.cmdLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.mainFormTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +101,14 @@ namespace MKPRG.MindWriter
             this.mainFormTableLayoutPanel.Size = new System.Drawing.Size(800, 213);
             this.mainFormTableLayoutPanel.TabIndex = 2;
             // 
+            // tbxCmd
+            // 
+            this.tbxCmd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbxCmd.Location = new System.Drawing.Point(53, 3);
+            this.tbxCmd.Name = "tbxCmd";
+            this.tbxCmd.Size = new System.Drawing.Size(724, 22);
+            this.tbxCmd.TabIndex = 1;
+            // 
             // cmdLabel
             // 
             this.cmdLabel.AutoSize = true;
@@ -110,14 +118,6 @@ namespace MKPRG.MindWriter
             this.cmdLabel.TabIndex = 0;
             this.cmdLabel.Text = "CMD";
             this.cmdLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbxCmd
-            // 
-            this.tbxCmd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbxCmd.Location = new System.Drawing.Point(53, 3);
-            this.tbxCmd.Name = "tbxCmd";
-            this.tbxCmd.Size = new System.Drawing.Size(724, 22);
-            this.tbxCmd.TabIndex = 1;
             // 
             // MainFrm
             // 
@@ -131,7 +131,7 @@ namespace MKPRG.MindWriter
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainFrm";
             this.ShowIcon = false;
-            this.Text = "Mind Writer ";
+            this.Text = "🛸 Mind Writer ";
             this.Load += new System.EventHandler(this.MainFrm_Load);
             this.ResizeEnd += new System.EventHandler(this.MainFrm_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);

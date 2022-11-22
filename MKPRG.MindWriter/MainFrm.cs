@@ -31,8 +31,7 @@ namespace MKPRG.MindWriter
         private void MainFrm_Load(object sender, EventArgs e)
         {
             TopMost = true;            
-            WindowState = FormWindowState.Maximized;
-            Text = "Main Window";
+            WindowState = FormWindowState.Maximized;           
 
             plcMgr.PlaceMainWindow();
         }
@@ -56,7 +55,7 @@ namespace MKPRG.MindWriter
         {
             var childWnd = new ChildForm(plcMgr);
             childWnd.Location = this.Location;
-            childWnd.Text = $"{plcMgr.ChildWindowCount} Window";
+            childWnd.Text = $"🜶 {plcMgr.ChildWindowCount}";
             childWnd.Show();
             childWnd.FormClosed += SecondForm_FormClosed;
             
