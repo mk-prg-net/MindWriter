@@ -13,6 +13,9 @@ namespace MKPRG.MindWriter
     /// <summary>
     /// mko, 20.11.2022
     /// Main Window, servers Commandlines, Windows- Managment etc.
+    /// 
+    /// Below Main Window can be created Child Windows. Main Window arranges Child Windows aoutomatically. 
+    /// If Main Window is moved to an other screen, then all child windows are created on Screen to wich Main Windows was moved.
     /// </summary>
     public partial class MainFrm : Form
     {
@@ -39,10 +42,6 @@ namespace MKPRG.MindWriter
             Application.Exit();
         }
 
-        private void placeTopToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            plcMgr.PlaceMainWindow();
-        }      
 
         private void SecondForm_FormClosed(object sender, FormClosedEventArgs e)
         {      
@@ -57,27 +56,10 @@ namespace MKPRG.MindWriter
         {
             var childWnd = new ChildForm(plcMgr);
             childWnd.Location = this.Location;
-            childWnd.Text = $"{plcMgr.ChildWindowCount} Fenster";
+            childWnd.Text = $"{plcMgr.ChildWindowCount} Window";
             childWnd.Show();
             childWnd.FormClosed += SecondForm_FormClosed;
             
-        }
-
-        private void MainFrm_LocationChanged(object sender, EventArgs e)
-        {
-            //if (Location.Y != 0 && !moves)
-            //{
-            //    plcMgr.PlaceMainWindow();
-            //}
-
-            moves = false;
-        }
-
-        bool moves = false;
-
-        private void MainFrm_Move(object sender, EventArgs e)
-        {
-            moves = true;
         }
 
         /// <summary>
