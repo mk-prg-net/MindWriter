@@ -19,7 +19,8 @@ namespace AspNet_ParamBinding.Models
         {
             HttpParameterBinding ret = null;
 
-            if(paramDescriptor.ParameterName == "FilterList")
+            //if(paramDescriptor.ParameterName == "FilterList" && paramDescriptor.ParameterType == typeof(List<IFilterDef>))
+            if (paramDescriptor.ParameterType == typeof(List<IFilterDef>))
             {
                 ret = new MyJSONParameterBinding(paramDescriptor, "FilterList");
             }

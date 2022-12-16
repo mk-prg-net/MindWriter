@@ -5,20 +5,66 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+        <h2>Getting started with WebApi Parameter Binding</h2>
+        <p>
+            Take a look inside <b>Models.MyJSONParameterBinding.cs</b>, <b>Models.FilterListParameterRule.cs</b> and <b>FilterDefController.cs</b>.
+        </p>
+        <p>
+            WebApi Post Call to FilterDefController via <code>$.ajax</code> is included in this side.
+        </p>
+        
     </div>
 </div>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(
+            function () {
+
+                // Cache Abschalten, da sonst nur der 1. Aufruf funkt
+                $.ajaxSetup({
+                    // Disable caching of AJAX responses
+                    cache: false
+                });
+
+                var flt =
+                    [
+                        {
+                            'FTYPE': 1,
+                            'FDEF': [99, 200, 300]
+                        },
+
+                        {
+                            'FTYPE': 2,
+                            'FDEF': {
+                                'BEGIN': "2022-12-01",
+                                'END': "2023-01-31"
+                            }
+                        }
+                    ];
+
+                var strJson = JSON.stringify(flt);
+
+                $.ajax({
+                    type: "POST",
+                    //dataType: "json",
+                    url: "https://localhost:44354/api/FilterDef",
+                    data: strJson
+                }).done(function (Data, status, req) {
+
+                    // Es hat geklappt
+                    console.log(Data.toString());
+
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+
+                    // Leider ein Fehler
+                    console.log(jqXHR.status.toString());
+                });
+
+
+            }
+        );
+
+    </script>
+}

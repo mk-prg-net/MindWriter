@@ -76,6 +76,7 @@ namespace AspNet_ParamBinding.Models
                     case 2:
                         var _timePeriod = elem["FDEF"].ToObject<_TimePeriod>();
                         var timePeriod = new TimePeriodFilter(_timePeriod);
+                        filterList.Add(timePeriod);
                         break;
                     default:
                         break;
